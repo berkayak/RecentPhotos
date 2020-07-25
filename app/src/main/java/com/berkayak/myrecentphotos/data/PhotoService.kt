@@ -11,9 +11,9 @@ interface PhotoService {
     @GET("services/rest")
     fun getRecentPhotos(@Query("per_page")perPage: String,
                         @Query("page")page: String,
-                        @Query("api_key")api: String = Const.API_KEY,
+                        @Query("api_key")apiKey: String = Const.API_KEY,
                         @Query("method") method: String = "flickr.photos.getRecent",
-                        @Query("format")format: String = Const.FORMAT_JSON,
+                        @Query("format") format: String = Const.FORMAT_JSON,
                         @Query("nojsoncallback")nojsoncallback: Int = 1): Response<RecentPhotosResponse>
 
 }
