@@ -53,7 +53,8 @@ class PhotoListFragment : Fragment() {
                     response.result?.photos?.photo?.let { safeList ->
                         props.photoList = props.photoList + safeList
                     }
-                    props.pageInfo = "${props.photoList.size} items in ${photoListViewModel.currentPage} page"
+                    props.pageInfo =
+                        "${props.photoList.size} items in ${photoListViewModel.currentPage} page"
                 }
                 is GenericResponse.Failure -> {
                     Log.d(Const.LOG_TAG, "setPhotoListObserver: fail -> \n ${response.message}")
@@ -66,5 +67,11 @@ class PhotoListFragment : Fragment() {
                 }
             }
         })
+    }
+
+    companion object {
+        const val TAG = "PhotoListFragment"
+
+        fun newInstance() = PhotoListFragment()
     }
 }

@@ -6,11 +6,13 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.berkayak.myrecentphotos.core.utilities.Const
+import com.berkayak.myrecentphotos.core.utilities.startFragment
 import com.berkayak.myrecentphotos.data.model.GenericResponse
 import com.berkayak.myrecentphotos.data.model.Photo
 import com.berkayak.myrecentphotos.data.model.RecentPhotosResponse
 import com.berkayak.myrecentphotos.data.repository.RecentPhotosRepository
 import com.berkayak.myrecentphotos.ui.adapter.PhotoAdapter
+import com.berkayak.myrecentphotos.ui.fragment.PhotoDetailFragment
 import com.berkayak.myrecentphotos.ui.viewholder.PhotoAdapterListener
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -41,6 +43,10 @@ class RecentPhotoListViewModel(
         PhotoAdapter(object : PhotoAdapterListener {
             override fun clickListener(photo: Photo) {
                 Log.d(Const.LOG_TAG, "photo item clicked")
+                activity?.startFragment(
+                    PhotoDetailFragment.newInstance(photo),
+                    PhotoDetailFragment.TAG
+                )
             }
 
             override fun onEndOfList() {

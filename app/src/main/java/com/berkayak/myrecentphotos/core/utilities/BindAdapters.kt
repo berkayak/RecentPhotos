@@ -1,6 +1,5 @@
 package com.berkayak.myrecentphotos.core.utilities
 
-import android.util.Log
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -16,8 +15,8 @@ fun ImageView.loadDynamic(photo: Photo) {
     Picasso
         .with(this.context)
         .load(url)
-        .placeholder(R.drawable.sample)
-        .error(R.drawable.sample)
+        .placeholder(R.drawable.flicker)
+        .error(R.drawable.flicker)
         .fit()
         .centerCrop()
         .into(this)
