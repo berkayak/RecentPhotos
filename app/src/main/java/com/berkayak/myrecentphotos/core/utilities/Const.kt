@@ -8,4 +8,5 @@ object Const {
     const val RESPONSE_STATUS_OK = "ok"
     const val RESPONSE_STATUS_FAIL = "fail"
     const val DEFAULT_PAGE_SIZE = 20
+    const val LOG_TAG = "LOGGING_POINT"
 }

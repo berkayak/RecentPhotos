@@ -9,7 +9,7 @@ import retrofit2.http.Query
 interface PhotoService {
 
     @GET("services/rest")
-    fun getRecentPhotos(@Query("per_page")perPage: String,
+    suspend fun getRecentPhotos(@Query("per_page")perPage: String,
                         @Query("page")page: String,
                         @Query("api_key")apiKey: String = Const.API_KEY,
                         @Query("method") method: String = "flickr.photos.getRecent",

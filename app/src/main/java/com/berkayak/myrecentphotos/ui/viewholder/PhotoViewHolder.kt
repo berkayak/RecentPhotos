@@ -7,8 +7,8 @@ import com.berkayak.myrecentphotos.databinding.ItemPhotoBinding
 class PhotoViewHolder(private val binding: ItemPhotoBinding)
     : RecyclerView.ViewHolder(binding.root) {
 
-    fun bind(photo: Photo, clickListener: PhotoClickListener?) {
+    fun bind(photo: Photo, adapterListener: PhotoAdapterListener?) {
         binding.bean = photo
-        binding.clickListener = clickListener
+        binding.clickListener = adapterListener
     }
 }
