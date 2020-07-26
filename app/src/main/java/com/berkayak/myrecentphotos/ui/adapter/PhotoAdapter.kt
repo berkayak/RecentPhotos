@@ -36,7 +36,6 @@ class PhotoAdapter(
     override fun bindData(data: List<Photo>) {
         photos.clear()
         photos.addAll(data)
-        Log.d(Const.LOG_TAG, "PhotoAdapter: bindData")
         notifyDataSetChanged()
     }
 }

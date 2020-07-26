@@ -17,7 +17,7 @@ class RecentPhotosRepository(private val service: PhotoService) {
                 page = page
             )
             if (response.isSuccessful && response.body()?.stat == Const.RESPONSE_STATUS_OK) {
-                GenericResponse.Success<RecentPhotosResponse>(response.body())
+                GenericResponse.Success(response.body())
             } else {
                 GenericResponse.Failure(response.body().toString())
             }

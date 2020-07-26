@@ -42,7 +42,6 @@ class RecentPhotoListViewModel(
     fun createAdapter(activity: FragmentActivity?): PhotoAdapter =
         PhotoAdapter(object : PhotoAdapterListener {
             override fun clickListener(photo: Photo) {
-                Log.d(Const.LOG_TAG, "photo item clicked")
                 activity?.startFragment(
                     PhotoDetailFragment.newInstance(photo),
                     PhotoDetailFragment.TAG
@@ -50,7 +49,6 @@ class RecentPhotoListViewModel(
             }
 
             override fun onEndOfList() {
-                Log.d(Const.LOG_TAG, "end of list")
                 getRecentPhotos()
             }
         })

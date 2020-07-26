@@ -46,23 +46,21 @@ class PhotoListFragment : Fragment() {
     }
 
     private fun setPhotoListObserver() {
-        photoListViewModel.observeRecentPhotos().observe(this, Observer { response ->
+        photoListViewModel.observeRecentPhotos().observe(viewLifecycleOwner, Observer { response ->
             when (response) {
                 is GenericResponse.Success -> {
-                    Log.d(Const.LOG_TAG, "setPhotoListObserver: success")
                     response.result?.photos?.photo?.let { safeList ->
                         props.photoList = props.photoList + safeList
                     }
-                    props.pageInfo =
-                        "${props.photoList.size} items in ${photoListViewModel.currentPage} page"
+                    props.pageInfo = getString(R.string.page_info, props.photoList.size, photoListViewModel.currentPage )
                 }
                 is GenericResponse.Failure -> {
-                    Log.d(Const.LOG_TAG, "setPhotoListObserver: fail -> \n ${response.message}")
+                    Log.d(Const.LOG_TAG, "${response.message}")
                 }
                 is GenericResponse.Error -> {
                     Log.d(
                         Const.LOG_TAG,
-                        "setPhotoListObserver: error -> \n ${response.exception.localizedMessage}"
+                        "${response.exception.localizedMessage}"
                     )
                 }
             }

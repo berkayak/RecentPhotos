@@ -23,8 +23,6 @@ fun ImageView.loadDynamic(photo: Photo) {
 }
 
 @BindingAdapter("data")
-fun <T> setRecyclerViewProperties(recyclerView: RecyclerView, items: List<Any>) {
-    (recyclerView.adapter as? BindableAdapter<Any, RecyclerView.ViewHolder>)?.let { safeAdapter ->
-        safeAdapter.bindData(items)
-    }
+fun setRecyclerViewProperties(recyclerView: RecyclerView, items: List<Any>) {
+    (recyclerView.adapter as? BindableAdapter<Any, RecyclerView.ViewHolder>)?.bindData(items)
 }

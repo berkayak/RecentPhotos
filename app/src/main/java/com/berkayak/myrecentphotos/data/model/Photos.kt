@@ -1,8 +1,6 @@
 package com.berkayak.myrecentphotos.data.model
 
 
-import com.google.gson.annotations.SerializedName
-
 data class Photos(
     val page: Int,
     val pages: Int,
